@@ -1,0 +1,22 @@
+.sidebar { width:72px; background:#ffffff; color:#344366; display:flex; flex-direction:column; align-items:center; padding:.75rem .5rem; border-right:1px solid #e2e8f1; }
+.logo { display:flex; flex-direction:column; align-items:center; gap:.4rem; font-weight:600; font-size:.7rem; margin-bottom:1rem; letter-spacing:.5px; text-transform:uppercase; }
+.logo-image { width:32px; height:32px; border-radius:8px; object-fit:cover; }
+.sidebar nav { display:flex; flex-direction:column; gap:.5rem; flex:1; width:100%; }
+.sidebar a { color:#4b5875; text-decoration:none; padding:.55rem 0; border-radius:10px; font-size:.6rem; display:flex; flex-direction:column; align-items:center; gap:.35rem; letter-spacing:.3px; font-weight:500; }
+.sidebar a span.icon { width:34px; height:34px; display:flex; align-items:center; justify-content:center; border-radius:10px; background:#dbe2ec; }
+.sidebar a span.icon svg { stroke:#ffffff; }
+.sidebar a.active span.icon { background:#3d6dee; }
+.sidebar a.active { color:#1d2433; font-weight:600; }
+.sidebar a:hover span.icon { background:#4a7ef0; }
+.sidebar a .lbl { line-height:1; }
+.sidebar-btn { background:none; border:none; color:#4b5875; padding:.55rem 0; border-radius:10px; font-size:.6rem; display:flex; flex-direction:column; align-items:center; gap:.35rem; letter-spacing:.3px; font-weight:500; cursor:pointer; width:100%; }
+.sidebar-btn span.icon { width:34px; height:34px; display:flex; align-items:center; justify-content:center; border-radius:10px; background:#dbe2ec; }
+.sidebar-btn span.icon svg { stroke:#ffffff; }
+.sidebar-btn:hover span.icon { background:#28a745; }
+.sidebar-btn .lbl { line-height:1; }
+.sidebar-footer { font-size:.55rem; opacity:.85; display:flex; flex-direction:column; gap:.4rem; align-items:center; }
+.sidebar-footer button { background:#2a3445; border:none; color:#fff; padding:.5rem .6rem; border-radius:10px; cursor:pointer; font-size:.55rem; box-shadow:0 2px 4px rgba(0,0,0,.12); display:flex; flex-direction:column; align-items:center; gap:.35rem; }
+.sidebar-footer button .icon { width:34px; height:34px; display:flex; align-items:center; justify-content:center; background:#3d4757; border-radius:10px; }
+.sidebar-footer button .icon svg { stroke:#ffffff; }
+.sidebar-footer button.logout-btn:hover .icon { background:#d9534f; }
+.sidebar-footer button:hover { background:#323d50; }

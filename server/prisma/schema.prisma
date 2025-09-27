@@ -1,0 +1,99 @@
+// Choose your provider: postgresql or mysql; defaulting to postgresql
+// Update the DATABASE_URL in ../.env
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+// SQLite doesn't support enums - using String with constraints instead
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         String   // 'teacher', 'student', 'admin'
+  classes      Class[]  @relation("TeacherClasses")
+  enrollments  Enrollment[]
+  submissions  Submission[]
+  createdAt    DateTime @default(now())
+}
+
+model Class {
+  id          String        @id @default(cuid())
+  name        String
+  joinCode    String        @unique
+  teacher     User          @relation("TeacherClasses", fields: [teacherId], references: [id])
+  teacherId   String
+  enrollments Enrollment[]
+  assignments Assignment[]
+  quizzes     Quiz[]
+  createdAt   DateTime      @default(now())
+}
+
+model Enrollment {
+  id        String   @id @default(cuid())
+  student   User     @relation(fields: [studentId], references: [id])
+  studentId String
+  class     Class    @relation(fields: [classId], references: [id], onDelete: Cascade)
+  classId   String
+  createdAt DateTime @default(now())
+  @@unique([studentId, classId])
+}
+
+model Assignment {
+  id             String        @id @default(cuid())
+  class          Class         @relation(fields: [classId], references: [id], onDelete: Cascade)
+  classId        String
+  title          String
+  description    String?
+  dueDate        DateTime?
+  submissionType String?       // 'text', 'link', or 'both'
+  submissions    Submission[]
+  createdAt      DateTime      @default(now())
+}
+
+model Quiz {
+  id          String       @id @default(cuid())
+  class       Class        @relation(fields: [classId], references: [id], onDelete: Cascade)
+  classId     String
+  title       String
+  dueDate     DateTime?
+  questions   Question[]
+  submissions Submission[]
+  createdAt   DateTime     @default(now())
+}
+
+model Question {
+  id        String   @id @default(cuid())
+  quiz      Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  quizId    String
+  prompt    String
+  type      String   // 'MCQ' or 'TEXT'
+  // For MCQ store comma-separated options; for TEXT ignore
+  options   String?
+  answerKey String? // For MCQ correct answer value
+  createdAt DateTime @default(now())
+}
+
+model Submission {
+  id           String      @id @default(cuid())
+  student      User        @relation(fields: [studentId], references: [id])
+  studentId    String
+  assignment   Assignment? @relation(fields: [assignmentId], references: [id])
+  assignmentId String?
+  quiz         Quiz?       @relation(fields: [quizId], references: [id])
+  quizId       String?
+  answers      String?     // Store JSON as string
+  grade        Float?
+  feedback     String?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  @@unique([studentId, assignmentId])
+  @@unique([studentId, quizId])
+}

@@ -1,0 +1,18 @@
+{
+	"name": "lumio-monorepo",
+	"private": true,
+	"version": "0.1.0",
+	"workspaces": [
+		"client",
+		"server"
+	],
+	"scripts": {
+		"dev": "npm run dev -w client & npm run dev -w server",
+		"dev:client": "npm run dev -w client",
+		"dev:server": "npm run dev -w server",
+		"build": "npm run build -w client && npm run build -w server"
+	},
+	"dependencies": {
+		"openai": "^5.23.1"
+	}
+}

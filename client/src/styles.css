@@ -1,0 +1,22 @@
+* { box-sizing:border-box; }
+body,html,#root { margin:0; padding:0; height:100%; font-family: 'Segoe UI', system-ui, sans-serif; background:#f5f7fb; color:#1d2433; }
+body { display:flex; }
+.app-shell { display:flex; width:100%; min-height:100vh; }
+.main-content { flex:1; padding:1.5rem 2rem; }
+.page h1 { margin-top:0; font-size:1.5rem; }
+.grid.tiles { display:grid; grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap:1rem; margin-top:1rem; }
+.tile { background:#ffffff; padding:1rem; border:1px solid #e1e6ef; border-radius:10px; font-size:.85rem; line-height:1.2; box-shadow:0 2px 4px rgba(0,0,0,.04); }
+.tile strong { display:block; font-size:1.4rem; margin-top:.25rem; color:#344366; }
+.auth-wrapper { display:flex; align-items:center; justify-content:center; width:100%; min-height:100vh; }
+.auth-card { background:#ffffff; padding:2.5rem 2rem; width:360px; border-radius:18px; text-align:center; border:1px solid #d9e1ec; display:flex; flex-direction:column; gap:1.25rem; box-shadow:0 4px 16px rgba(0,0,0,.06); }
+.auth-card h1 { margin:0; font-size:1.6rem; }
+.logo-image.large { width:64px; height:64px; margin:0 auto; border-radius:12px; object-fit:cover; }
+.form-col { display:flex; flex-direction:column; gap:.75rem; text-align:left; }
+.form-col label { display:flex; flex-direction:column; font-size:.8rem; gap:.35rem; }
+.form-col input, .form-col select { background:#f1f5fa; border:1px solid #c3cedb; color:#1d2433; padding:.6rem .7rem; border-radius:6px; font-size:.85rem; }
+.form-col input:focus, .form-col select:focus { outline:2px solid #b3d4ff; border-color:#7ab4ff; }
+.form-col button { background:#3d6dee; border:none; color:#fff; padding:.7rem 1rem; border-radius:6px; cursor:pointer; font-size:.9rem; margin-top:.5rem; box-shadow:0 2px 4px rgba(0,0,0,.08); }
+.form-col button:hover { background:#2f5dcc; }
+.btn-primary { background:#3d6dee; border:none; color:#fff; padding:.7rem 1rem; border-radius:6px; cursor:pointer; font-size:.9rem; box-shadow:0 2px 4px rgba(0,0,0,.08); }
+.btn-primary:hover { background:#2f5dcc; }
+.btn-primary:disabled { opacity:0.6; cursor:not-allowed; }
