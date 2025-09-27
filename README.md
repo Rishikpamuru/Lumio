@@ -216,18 +216,5 @@ API default runs on `http://localhost:4000` and client on `http://localhost:5173
 ## AI Key
 Put AI key in `server/.env` as `AI_API_KEY=...`. The file `src/services/aiKey.ts` exposes a helper `getAIKey()` for any AI feature modules.
 
-## Next Steps / Ideas
-- Demo environment uses simplified authentication
-- Database resets may be needed during development
-- AI features require stable internet connection
-
-## 📞 Support
-
-For support, issues, or questions:
-- Open an issue on GitHub
-- Contact the development team
-- Check the documentation for troubleshooting
-
----
 
 **Made with ❤️ for education**
